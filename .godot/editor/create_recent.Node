@@ -1,10 +1,10 @@
+Node2D
+Node
 RayCast2D
 CollisionShape2D
 Area2D
-Node
 CharacterBody2D
 Timer
 Sprite2D
 TileMap
-Node2D
 Camera2D

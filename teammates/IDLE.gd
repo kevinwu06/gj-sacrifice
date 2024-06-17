@@ -1,7 +1,7 @@
 extends State
 class_name IDLE
 
-@onready var floor_checker: RayCast2D = $"../../FloorChecker"
+@onready var floor_checker: RayCast2D = $"../../Graphics/FloorChecker"
 @export var mate: CharacterBody2D
 var player: CharacterBody2D
 
@@ -18,10 +18,7 @@ func physics_update(delta: float) -> void:
 		mate.velocity.y += gravity * delta
 
 	if player:
-		if floor_checker.is_colliding():
-			follow_player(player, delta)
-		else:
-			mate.velocity.x = move_toward(mate.velocity.x, 0, SPEED)
+		follow_player(player, delta)
 		
 	mate.move_and_slide()	 
 
@@ -33,10 +30,14 @@ func follow_player(player, delta):
 		direction=1
 	else:
 		direction=-1;
+	mate.direction=-direction
 	distance=abs(distance)
 	
 	if distance > follow_distance:
-		mate.velocity.x = direction * SPEED
-	else:
+		if floor_checker.is_colliding():
+			mate.velocity.x = direction * SPEED
+		else:
 			mate.velocity.x = move_toward(mate.velocity.x, 0, SPEED)
+	else:
+		mate.velocity.x = move_toward(mate.velocity.x, 0, SPEED)
 		
