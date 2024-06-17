@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Sprite2D
 ParallaxLayer
 ParallaxBackground
@@ -12,3 +13,15 @@ CharacterBody2D
 Timer
 CollisionShape2D
 Area2D
+=======
+RayCast2D
+CollisionShape2D
+Area2D
+Node
+CharacterBody2D
+Timer
+Sprite2D
+TileMap
+Node2D
+Camera2D
+>>>>>>> 11c5c9cc6fd1528b604054b68610e2751610da7b

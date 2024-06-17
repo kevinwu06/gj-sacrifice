@@ -1,4 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
+<<<<<<< HEAD
 ::res://::1718604854
 icon.svg::CompressedTexture2D::4311645358158882511::1718595971::1718595971::1::::<><>::
 ::res://assets/::1718602911
@@ -33,3 +34,30 @@ HOLD.gd::GDScript::-1::1718595972::0::1::::HOLD<>State<>::
 IDLE.gd::GDScript::-1::1718595972::0::1::::IDLE<>State<>::
 mate1.gd::GDScript::-1::1718595972::0::1::::<>CharacterBody2D<>::
 mate1.tscn::PackedScene::3927862352795678680::1718604725::0::1::::<><>::res://teammates/mate1.gd<>uid://c0l3afwdy41yu::::res://assets/grass.png<>res://scripts/states/StateMachine.gd<>res://teammates/IDLE.gd<>res://teammates/HOLD.gd
+=======
+::res://::1718595891
+icon.svg::CompressedTexture2D::4311645358158882511::1718524284::1718524290::1::::<><>::
+::res://assets/::1718597309
+grass.png::CompressedTexture2D::6551970986201127156::1718524676::1718524706::1::::<><>::
+lava.png::CompressedTexture2D::236647341174526881::1718597298::1718597311::1::::<><>::
+::res://classes/::1718582926
+::res://scenes/::1718596832
+endpoint.tscn::PackedScene::355155330009093842::1718596832::0::1::::<><>::uid://c0l3afwdy41yu::::res://assets/grass.png<>res://scripts/endpoint.gd
+game.tscn::PackedScene::1521544390964336492::1718596832::0::1::::<><>::uid://cru6v24tqmo18::::res://scenes/player.tscn<>uid://b8uj17bluackc::::res://scenes/map_1.tscn<>uid://bv7xk34hwsrpg::::res://teammates/mate1.tscn
+kill_zone.tscn::PackedScene::7429536617571829293::1718596832::0::1::::<><>::res://scripts/kill_zone.gd
+map_1.tscn::PackedScene::4744534645224318782::1718596832::0::1::::<><>::uid://c0l3afwdy41yu::::res://assets/grass.png<>uid://fcbmd82l34x7::::res://scenes/endpoint.tscn<>uid://dd36nakuiubtd::::res://scenes/kill_zone.tscn
+player.tscn::PackedScene::6009260456576636493::1718596832::0::1::::<><>::uid://c0l3afwdy41yu::::res://assets/grass.png<>res://scripts/player.gd
+::res://scripts/::1718596218
+endpoint.gd::GDScript::-1::1718527176::0::1::::<>Area2D<>::
+kill_zone.gd::GDScript::-1::1718596218::0::1::::<>Area2D<>::
+player.gd::GDScript::-1::1718592378::0::1::::Player<>CharacterBody2D<>::
+::res://scripts/states/::1718590671
+State.gd::GDScript::-1::1718584583::0::1::::State<>Node<>::
+StateMachine.gd::GDScript::-1::1718590671::0::1::::<>Node<>::
+::res://teammates/::1718596832
+HOLD.gd::GDScript::-1::1718592677::0::1::::HOLD<>State<>::
+IDLE.gd::GDScript::-1::1718592525::0::1::::IDLE<>State<>::
+mate1.gd::GDScript::-1::1718595948::0::1::::<>CharacterBody2D<>::
+mate1.tscn::PackedScene::3927862352795678680::1718596832::0::1::::<><>::res://teammates/mate1.gd<>uid://c0l3afwdy41yu::::res://assets/grass.png<>res://scripts/states/StateMachine.gd<>res://teammates/IDLE.gd<>res://teammates/HOLD.gd<>res://teammates/DIED.gd
+DIED.gd::GDScript::-1::1718596764::0::1::::DIED<>State<>::
+>>>>>>> 11c5c9cc6fd1528b604054b68610e2751610da7b

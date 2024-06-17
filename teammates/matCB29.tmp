@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bv7xk34hwsrpg"]
+[gd_scene load_steps=8 format=3 uid="uid://bv7xk34hwsrpg"]
 
 [ext_resource type="Script" path="res://teammates/mate1.gd" id="1_6ix40"]
 [ext_resource type="Texture2D" uid="uid://c0l3afwdy41yu" path="res://assets/grass.png" id="1_tdd04"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://teammates/IDLE.gd" id="4_4nyr1"]
 [ext_resource type="Script" path="res://teammates/HOLD.gd" id="5_5v7gg"]
 [ext_resource type="Script" path="res://teammates/DIED.gd" id="6_2thjo"]
-[ext_resource type="Script" path="res://teammates/THROWED.gd" id="7_fwluk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4atyd"]
 
@@ -37,12 +36,3 @@ mate = NodePath("../..")
 [node name="DIED" type="Node" parent="StateMachine" node_paths=PackedStringArray("mate")]
 script = ExtResource("6_2thjo")
 mate = NodePath("../..")
-
-[node name="THROWED" type="Node" parent="StateMachine" node_paths=PackedStringArray("mate")]
-script = ExtResource("7_fwluk")
-mate = NodePath("../..")
-
-[node name="FloorChecker" type="RayCast2D" parent="."]
-position = Vector2(35, 0)
-target_position = Vector2(0, 9)
-collision_mask = 3

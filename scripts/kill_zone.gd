@@ -7,7 +7,7 @@ func _on_body_entered(body: Node2D) -> void:
 		print("Player Died!")
 		timer.start()
 	else:
-		body.die
+		body.die()
 
 func _on_timer_timeout() -> void:
 	get_tree().reload_current_scene()

@@ -1,12 +1,22 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8uj17bluackc"]
+[gd_scene load_steps=9 format=3 uid="uid://b8uj17bluackc"]
 
 [ext_resource type="Texture2D" uid="uid://c0l3afwdy41yu" path="res://assets/grass.png" id="1_o1466"]
 [ext_resource type="PackedScene" uid="uid://cgp5b32j2iknp" path="res://scenes/parallax_background.tscn" id="1_sawpf"]
 [ext_resource type="PackedScene" uid="uid://fcbmd82l34x7" path="res://scenes/endpoint.tscn" id="2_0m2e4"]
+[ext_resource type="Texture2D" uid="uid://dmvsuqttue0p" path="res://assets/lava.png" id="2_7nl5c"]
 [ext_resource type="PackedScene" uid="uid://dd36nakuiubtd" path="res://scenes/kill_zone.tscn" id="3_g8e5o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xyxtf"]
 texture = ExtResource("1_o1466")
+texture_region_size = Vector2i(50, 50)
+0:0/next_alternative_id = 3
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xto8p"]
+texture = ExtResource("2_7nl5c")
 texture_region_size = Vector2i(50, 50)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -17,6 +27,7 @@ texture_region_size = Vector2i(50, 50)
 tile_size = Vector2i(50, 50)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_xyxtf")
+sources/2 = SubResource("TileSetAtlasSource_xto8p")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gg8rt"]
 
@@ -31,7 +42,7 @@ transform = Transform2D(0.5, 0, 0, 0.5, -200, -200)
 scale = Vector2(0.5, 0.5)
 tile_set = SubResource("TileSet_00tja")
 format = 2
-layer_0/tile_data = PackedInt32Array(524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 589832, 1, 0, 655368, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 655372, 1, 0, 655373, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0, 655377, 1, 0, 655378, 1, 0, 589842, 1, 0, 524306, 1, 0, 458770, 1, 0, 393234, 1, 0, 393235, 1, 0, 393236, 1, 0, 393237, 1, 0, 393238, 1, 0, 393239, 1, 0, 393240, 1, 0, 393233, 1, 0, 393232, 1, 0, 393231, 1, 0, 393230, 1, 0, 589823, 1, 0, 589822, 1, 0, 589821, 1, 0, 589820, 1, 0, 589819, 1, 0, 589818, 1, 0, 589817, 1, 0, 589816, 1, 0, 589815, 1, 0, 589814, 1, 0, 589813, 1, 0, 393241, 1, 0)
+layer_0/tile_data = PackedInt32Array(524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 589832, 1, 0, 589842, 1, 0, 524306, 1, 0, 458770, 1, 0, 393234, 1, 0, 393235, 1, 0, 393236, 1, 0, 393237, 1, 0, 393238, 1, 0, 393239, 1, 0, 393240, 1, 0, 589823, 1, 0, 589822, 1, 0, 589821, 1, 0, 589820, 1, 0, 589819, 1, 0, 589818, 1, 0, 589817, 1, 0, 589816, 1, 0, 589815, 1, 0, 589814, 1, 0, 589813, 1, 0, 393241, 1, 0, 655369, 2, 0, 655370, 2, 0, 655371, 2, 0, 655372, 2, 0, 655373, 2, 0, 655374, 2, 0, 655375, 2, 0, 655376, 2, 0, 655377, 2, 0, 655368, 1, 0, 655378, 1, 0)
 
 [node name="EndPoint" parent="." instance=ExtResource("2_0m2e4")]
 position = Vector2(533, 111)
@@ -40,4 +51,5 @@ position = Vector2(533, 111)
 position = Vector2(323, 206)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
+position = Vector2(-1, 37)
 shape = SubResource("WorldBoundaryShape2D_gg8rt")
