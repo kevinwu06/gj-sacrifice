@@ -1,0 +1,11 @@
+res://scenes/game.tscn
+res://scenes/player.tscn
+res://scenes/map_1.tscn
+res://scenes/endpoint.tscn
+res://scenes/kill_zone.tscn
+res://teammates/mate1.tscn
+res://teammates/mate1.gd
+res://teammates/HOLD.gd
+res://scripts/states/StateMachine.gd
+res://teammates/IDLE.gd
+res://scripts/player.gd

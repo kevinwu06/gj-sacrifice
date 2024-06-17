@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cru6v24tqmo18"]
+
+[ext_resource type="Texture2D" uid="uid://c0l3afwdy41yu" path="res://assets/grass.png" id="1_kkwi6"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_lejjv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yy4sf"]
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_lejjv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -25)
+texture = ExtResource("1_kkwi6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -25)
+scale = Vector2(2.5, 2.5)
+shape = SubResource("RectangleShape2D_yy4sf")

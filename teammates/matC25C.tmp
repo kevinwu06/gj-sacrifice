@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv7xk34hwsrpg"]
+
+[ext_resource type="Script" path="res://teammates/mate1.gd" id="1_526yf"]
+[ext_resource type="Texture2D" uid="uid://c0l3afwdy41yu" path="res://assets/grass.png" id="1_tdd04"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4atyd"]
+
+[node name="mate1" type="CharacterBody2D"]
+script = ExtResource("1_526yf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -25)
+texture = ExtResource("1_tdd04")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -25)
+scale = Vector2(2.5, 2.5)
+shape = SubResource("RectangleShape2D_4atyd")
