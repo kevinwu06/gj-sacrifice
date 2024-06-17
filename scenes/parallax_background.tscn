@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgp5b32j2iknp"]
+
+[ext_resource type="Texture2D" uid="uid://xii7l5f1jbo3" path="res://assets/ui/background/pointy_mountainsblue.png" id="1_c1b01"]
+[ext_resource type="Texture2D" uid="uid://xwlpkp2lxh64" path="res://assets/ui/background/clouds2white.png" id="2_rsofr"]
+[ext_resource type="Texture2D" uid="uid://pftkiqkht007" path="res://assets/ui/background/clouds1.png" id="3_4pr2v"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="WhiteCloudLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(1024, 2.08165e-12)
+
+[node name="whitecloud" type="Sprite2D" parent="WhiteCloudLayer"]
+position = Vector2(511.75, 385)
+scale = Vector2(1.0225, 1.48984)
+texture = ExtResource("2_rsofr")
+
+[node name="BlueCloudLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1024, 2.08165e-12)
+
+[node name="bluecloud" type="Sprite2D" parent="BlueCloudLayer"]
+position = Vector2(511.125, 485)
+scale = Vector2(1.02473, 1.63107)
+texture = ExtResource("3_4pr2v")
+
+[node name="MountainLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(1024, 2.08165e-12)
+
+[node name="Mountain" type="Sprite2D" parent="MountainLayer"]
+position = Vector2(510.062, 521.5)
+scale = Vector2(1.02485, 1.55357)
+texture = ExtResource("1_c1b01")

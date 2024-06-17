@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://dx50mblkdgtvr"]
+
+[ext_resource type="PackedScene" uid="uid://cgp5b32j2iknp" path="res://scenes/parallax_background.tscn" id="1_7sv31"]
+[ext_resource type="Texture2D" uid="uid://bb28mm3eeycfl" path="res://assets/ui/title.png" id="1_f6u87"]
+[ext_resource type="Theme" uid="uid://dp26c5va0fey5" path="res://assets/ui/main_theme.tres" id="2_qiaxc"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_7sv31")]
+
+[node name="UI" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="TextureRect" parent="UI"]
+layout_mode = 2
+texture = ExtResource("1_f6u87")
+expand_mode = 5
+
+[node name="MainMenu" type="VBoxContainer" parent="UI"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("2_qiaxc")
+
+[node name="StartButton" type="Button" parent="UI/MainMenu"]
+layout_mode = 2
+text = "Start
+"
+
+[node name="OptionsButton" type="Button" parent="UI/MainMenu"]
+layout_mode = 2
+text = "Options
+"
+
+[node name="QuitButton" type="Button" parent="UI/MainMenu"]
+layout_mode = 2
+text = "Quit
+"

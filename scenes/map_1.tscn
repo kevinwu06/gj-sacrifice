@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8uj17bluackc"]
+[gd_scene load_steps=8 format=3 uid="uid://b8uj17bluackc"]
 
 [ext_resource type="Texture2D" uid="uid://c0l3afwdy41yu" path="res://assets/grass.png" id="1_o1466"]
+[ext_resource type="PackedScene" uid="uid://cgp5b32j2iknp" path="res://scenes/parallax_background.tscn" id="1_sawpf"]
 [ext_resource type="PackedScene" uid="uid://fcbmd82l34x7" path="res://scenes/endpoint.tscn" id="2_0m2e4"]
 [ext_resource type="PackedScene" uid="uid://dd36nakuiubtd" path="res://scenes/kill_zone.tscn" id="3_g8e5o"]
 
@@ -20,6 +21,11 @@ sources/1 = SubResource("TileSetAtlasSource_xyxtf")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gg8rt"]
 
 [node name="Map1" type="Node2D"]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_sawpf")]
+offset = Vector2(-200, -200)
+scale = Vector2(0.5, 0.5)
+transform = Transform2D(0.5, 0, 0, 0.5, -200, -200)
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(0.5, 0.5)
