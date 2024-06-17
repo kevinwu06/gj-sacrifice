@@ -8,27 +8,27 @@
 
 [node name="WhiteCloudLayer" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.4, 0.4)
-motion_mirroring = Vector2(1024, 2.08165e-12)
+motion_mirroring = Vector2(1152, 2.08165e-12)
 
 [node name="whitecloud" type="Sprite2D" parent="WhiteCloudLayer"]
-position = Vector2(511.75, 385)
-scale = Vector2(1.0225, 1.48984)
+position = Vector2(576, 385)
+scale = Vector2(1.152, 1.48984)
 texture = ExtResource("2_rsofr")
 
 [node name="BlueCloudLayer" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.6, 0.6)
-motion_mirroring = Vector2(1024, 2.08165e-12)
+motion_mirroring = Vector2(1152, 2.08165e-12)
 
 [node name="bluecloud" type="Sprite2D" parent="BlueCloudLayer"]
-position = Vector2(511.125, 485)
-scale = Vector2(1.02473, 1.63107)
+position = Vector2(576, 463)
+scale = Vector2(1.152, 1.831)
 texture = ExtResource("3_4pr2v")
 
 [node name="MountainLayer" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.8, 0.8)
-motion_mirroring = Vector2(1024, 2.08165e-12)
+motion_mirroring = Vector2(1152, 2.08165e-12)
 
 [node name="Mountain" type="Sprite2D" parent="MountainLayer"]
-position = Vector2(510.062, 521.5)
-scale = Vector2(1.02485, 1.55357)
+position = Vector2(577.562, 521.5)
+scale = Vector2(1.15372, 1.55357)
 texture = ExtResource("1_c1b01")

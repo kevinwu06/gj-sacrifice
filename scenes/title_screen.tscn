@@ -1,8 +1,70 @@
-[gd_scene load_steps=4 format=3 uid="uid://dx50mblkdgtvr"]
+[gd_scene load_steps=8 format=3 uid="uid://dx50mblkdgtvr"]
 
 [ext_resource type="PackedScene" uid="uid://cgp5b32j2iknp" path="res://scenes/parallax_background.tscn" id="1_7sv31"]
 [ext_resource type="Texture2D" uid="uid://bb28mm3eeycfl" path="res://assets/ui/title.png" id="1_f6u87"]
+[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_tqkw5"]
 [ext_resource type="Theme" uid="uid://dp26c5va0fey5" path="res://assets/ui/main_theme.tres" id="2_qiaxc"]
+
+[sub_resource type="Animation" id="Animation_xsbve"]
+resource_name = "show-options"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OptionsMenu:anchor_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [0.582, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OptionsMenu:anchor_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [0.582, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainMenu:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(500, 313), Vector2(-170, 313)]
+}
+
+[sub_resource type="Animation" id="Animation_rdsgx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(500, 313)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cuvl5"]
+_data = {
+"RESET": SubResource("Animation_rdsgx"),
+"show-options": SubResource("Animation_xsbve")
+}
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -11,8 +73,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_tqkw5")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("1_7sv31")]
+scroll_offset = Vector2(-200, 2.08165e-12)
 
 [node name="UI" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -27,23 +91,66 @@ layout_mode = 2
 texture = ExtResource("1_f6u87")
 expand_mode = 5
 
-[node name="MainMenu" type="VBoxContainer" parent="UI"]
-layout_mode = 2
+[node name="Menus" type="Node" parent="UI"]
+
+[node name="OptionsMenu" type="VBoxContainer" parent="UI/Menus"]
+anchors_preset = -1
+anchor_left = 0.6
+anchor_right = 0.6
+offset_left = 488.0
+offset_top = 352.0
+offset_right = 663.0
+offset_bottom = 537.0
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 0.0
 theme = ExtResource("2_qiaxc")
 
-[node name="StartButton" type="Button" parent="UI/MainMenu"]
+[node name="BGMButton" type="Button" parent="UI/Menus/OptionsMenu"]
+layout_mode = 2
+text = "BGM: ON"
+
+[node name="SFXButton" type="Button" parent="UI/Menus/OptionsMenu"]
+layout_mode = 2
+text = "SFX: ON"
+
+[node name="BackButton" type="Button" parent="UI/Menus/OptionsMenu"]
+layout_mode = 2
+text = "Back
+"
+
+[node name="MainMenu" type="VBoxContainer" parent="UI/Menus"]
+offset_left = 500.0
+offset_top = 313.0
+offset_right = 651.0
+offset_bottom = 498.0
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("2_qiaxc")
+
+[node name="StartButton" type="Button" parent="UI/Menus/MainMenu"]
 layout_mode = 2
 text = "Start
 "
 
-[node name="OptionsButton" type="Button" parent="UI/MainMenu"]
+[node name="OptionsButton" type="Button" parent="UI/Menus/MainMenu"]
 layout_mode = 2
 text = "Options
 "
 
-[node name="QuitButton" type="Button" parent="UI/MainMenu"]
+[node name="QuitButton" type="Button" parent="UI/Menus/MainMenu"]
 layout_mode = 2
 text = "Quit
 "
+
+[node name="Transitions" type="AnimationPlayer" parent="UI/Menus"]
+libraries = {
+"": SubResource("AnimationLibrary_cuvl5")
+}
+
+[node name="ClickSound" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"
+
+[connection signal="pressed" from="UI/Menus/OptionsMenu/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="UI/Menus/MainMenu/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="UI/Menus/MainMenu/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="UI/Menus/MainMenu/QuitButton" to="." method="_on_quit_button_pressed"]

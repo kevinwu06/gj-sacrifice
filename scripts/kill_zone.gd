@@ -10,4 +10,5 @@ func _on_body_entered(body: Node2D) -> void:
 		body.die()
 
 func _on_timer_timeout() -> void:
-	get_tree().reload_current_scene()
+	Globals.reload_world() 
+	#Global 设成了会自动加载的场景，所以可以直接用Global.里面的函数，参考globals.gd

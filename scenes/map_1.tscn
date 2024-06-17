@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8uj17bluackc"]
+[gd_scene load_steps=10 format=3 uid="uid://b8uj17bluackc"]
 
 [ext_resource type="Texture2D" uid="uid://c0l3afwdy41yu" path="res://assets/grass.png" id="1_o1466"]
 [ext_resource type="PackedScene" uid="uid://cgp5b32j2iknp" path="res://scenes/parallax_background.tscn" id="1_sawpf"]
