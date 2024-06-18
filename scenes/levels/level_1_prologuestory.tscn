@@ -1,0 +1,116 @@
+[gd_scene load_steps=8 format=3 uid="uid://btu4s4j7tcxri"]
+
+[ext_resource type="Script" path="res://scripts/levels/level_1_prologue_story.gd" id="1_w0mup"]
+[ext_resource type="LabelSettings" uid="uid://fk66vk6n1hc6" path="res://assets/ui/story_label_settings.tres" id="2_sua50"]
+[ext_resource type="LabelSettings" uid="uid://bj63mt4ylkc1d" path="res://assets/ui/tip_label_settings.tres" id="2_uqp83"]
+
+[sub_resource type="Animation" id="Animation_v4psx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Story:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jm4e0"]
+resource_name = "fade_in_sentence"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Story:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0pawl"]
+resource_name = "fade_out_paragraph"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Story:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jilkl"]
+_data = {
+"RESET": SubResource("Animation_v4psx"),
+"fade_in_sentence": SubResource("Animation_jm4e0"),
+"fade_out_paragraph": SubResource("Animation_0pawl")
+}
+
+[node name="prologuestory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w0mup")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="SkipTip" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Text"
+label_settings = ExtResource("2_uqp83")
+
+[node name="Story" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Story"
+label_settings = ExtResource("2_sua50")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../SkipTip")
+libraries = {
+"": SubResource("AnimationLibrary_jilkl")
+}

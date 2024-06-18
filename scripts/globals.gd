@@ -32,7 +32,7 @@ func _animate_transition_to(path):
 	animation_player.play("fade-in")
 
 func start_game():
-	go_to_world("res://scenes/levels/level_1_game_prologue.tscn")
+	go_to_world("res://scenes/levels/level_1_prologuestory.tscn")
 
 #到时候可以写保留什么东西等等
 func go_to_world(path):
