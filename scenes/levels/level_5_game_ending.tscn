@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwbgekjibxe38"]
+
+[ext_resource type="PackedScene" uid="uid://cah4cm21i7sov" path="res://scenes/levels/level_5_map.tscn" id="1_kolgy"]
+[ext_resource type="PackedScene" uid="uid://cru6v24tqmo18" path="res://scenes/player.tscn" id="2_ou4d1"]
+[ext_resource type="PackedScene" uid="uid://bv7xk34hwsrpg" path="res://teammates/mate1.tscn" id="3_lcnju"]
+
+[node name="Level5_End" type="Node2D"]
+
+[node name="level5map" parent="." instance=ExtResource("1_kolgy")]
+
+[node name="Player" parent="." instance=ExtResource("2_ou4d1")]
+position = Vector2(-63, 3)
+scale = Vector2(0.5, 0.5)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(42, -12)
+offset = Vector2(0, -25)
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+
+[node name="mate1" parent="." instance=ExtResource("3_lcnju")]
+scale = Vector2(0.5, 0.5)

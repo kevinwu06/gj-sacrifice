@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxfrb33hchx0v"]
+
+[ext_resource type="PackedScene" uid="uid://c5iddfvue8alf" path="res://scenes/levels/level_3_map.tscn" id="1_y0l5q"]
+[ext_resource type="PackedScene" uid="uid://cru6v24tqmo18" path="res://scenes/player.tscn" id="2_ute8w"]
+[ext_resource type="PackedScene" uid="uid://bv7xk34hwsrpg" path="res://teammates/mate1.tscn" id="3_ycgey"]
+
+[node name="Level3" type="Node2D"]
+
+[node name="level3map" parent="." instance=ExtResource("1_y0l5q")]
+
+[node name="Player" parent="." instance=ExtResource("2_ute8w")]
+position = Vector2(-63, 3)
+scale = Vector2(0.5, 0.5)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(42, -12)
+offset = Vector2(0, -25)
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+
+[node name="mate1" parent="." instance=ExtResource("3_ycgey")]
+scale = Vector2(0.5, 0.5)
