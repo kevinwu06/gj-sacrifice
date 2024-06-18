@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cffnskg2ht6ea" path="res://scenes/levels/level_2_map.tscn" id="1_5368y"]
 [ext_resource type="PackedScene" uid="uid://cru6v24tqmo18" path="res://scenes/player.tscn" id="2_ap3f6"]
-[ext_resource type="PackedScene" uid="uid://bv7xk34hwsrpg" path="res://teammates/mate1.tscn" id="3_c7p88"]
+[ext_resource type="PackedScene" uid="uid://bv7xk34hwsrpg" path="res://scenes/mates/mate1.tscn" id="3_c7p88"]
 
 [node name="Level2" type="Node2D"]
 

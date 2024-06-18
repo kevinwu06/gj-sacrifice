@@ -1,8 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://vxbu4tsd32we"]
+[gd_scene load_steps=6 format=3 uid="uid://vxbu4tsd32we"]
 
 [ext_resource type="PackedScene" uid="uid://cru6v24tqmo18" path="res://scenes/player.tscn" id="1_2bhdg"]
 [ext_resource type="PackedScene" uid="uid://b8uj17bluackc" path="res://scenes/map_1.tscn" id="2_jdpau"]
-[ext_resource type="PackedScene" uid="uid://bv7xk34hwsrpg" path="res://teammates/mate1.tscn" id="3_r6s1q"]
+[ext_resource type="PackedScene" uid="uid://bv7xk34hwsrpg" path="res://scenes/mates/mate1.tscn" id="3_r6s1q"]
+
+[sub_resource type="Gradient" id="Gradient_ilulh"]
+offsets = PackedFloat32Array(0, 0.967532, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.0844156, 0.0844156, 0.0844156, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wre5s"]
+gradient = SubResource("Gradient_ilulh")
+fill = 1
+fill_from = Vector2(0.5, 0.461009)
+fill_to = Vector2(0.87156, 0.169725)
 
 [node name="Game" type="Node2D"]
 
@@ -22,5 +32,16 @@ scale = Vector2(0.5, 0.5)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 offset = Vector2(0, -25)
-zoom = Vector2(3, 3)
+zoom = Vector2(1.945, 1.945)
 position_smoothing_enabled = true
+
+[node name="PointLight2D" type="PointLight2D" parent="Player"]
+position = Vector2(0, -22)
+energy = 0.8
+texture = SubResource("GradientTexture2D_wre5s")
+texture_scale = 9.09
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.14
+blend_mode = 1
+range_layer_min = -100

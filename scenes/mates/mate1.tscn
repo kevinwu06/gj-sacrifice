@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://bv7xk34hwsrpg"]
 
-[ext_resource type="Script" path="res://teammates/mate1.gd" id="1_6ix40"]
+[ext_resource type="Script" path="res://teammates/default_mate/mate1.gd" id="1_6ix40"]
 [ext_resource type="Texture2D" uid="uid://c0l3afwdy41yu" path="res://assets/grass.png" id="1_tdd04"]
 [ext_resource type="Script" path="res://scripts/states/StateMachine.gd" id="3_yr2cm"]
-[ext_resource type="Script" path="res://teammates/IDLE.gd" id="4_4nyr1"]
-[ext_resource type="Script" path="res://teammates/HOLD.gd" id="5_5v7gg"]
-[ext_resource type="Script" path="res://teammates/DIED.gd" id="6_2thjo"]
-[ext_resource type="Script" path="res://teammates/THROWED.gd" id="7_fwluk"]
+[ext_resource type="Script" path="res://teammates/default_mate/IDLE.gd" id="4_4nyr1"]
+[ext_resource type="Script" path="res://teammates/default_mate/HOLD.gd" id="5_5v7gg"]
+[ext_resource type="Script" path="res://teammates/default_mate/DIED.gd" id="6_2thjo"]
+[ext_resource type="Script" path="res://teammates/default_mate/THROWED.gd" id="7_fwluk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4atyd"]
 

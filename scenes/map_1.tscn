@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8uj17bluackc"]
+[gd_scene load_steps=12 format=3 uid="uid://b8uj17bluackc"]
 
 [ext_resource type="Texture2D" uid="uid://c0l3afwdy41yu" path="res://assets/grass.png" id="1_o1466"]
 [ext_resource type="PackedScene" uid="uid://cgp5b32j2iknp" path="res://scenes/parallax_background.tscn" id="1_sawpf"]
 [ext_resource type="PackedScene" uid="uid://fcbmd82l34x7" path="res://scenes/endpoint.tscn" id="2_0m2e4"]
 [ext_resource type="Texture2D" uid="uid://dmvsuqttue0p" path="res://assets/lava.png" id="2_7nl5c"]
 [ext_resource type="PackedScene" uid="uid://dd36nakuiubtd" path="res://scenes/kill_zone.tscn" id="3_g8e5o"]
+[ext_resource type="PackedScene" uid="uid://d1s2jrx8yax0u" path="res://scenes/arrow_zone.tscn" id="6_wtj0i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xyxtf"]
 texture = ExtResource("1_o1466")
@@ -31,6 +32,9 @@ sources/2 = SubResource("TileSetAtlasSource_xto8p")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gg8rt"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qak85"]
+size = Vector2(134, 175)
+
 [node name="Map1" type="Node2D"]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("1_sawpf")]
@@ -53,3 +57,16 @@ position = Vector2(323, 206)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
 position = Vector2(-1, 37)
 shape = SubResource("WorldBoundaryShape2D_gg8rt")
+
+[node name="ArrowZone" parent="." instance=ExtResource("6_wtj0i")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArrowZone"]
+position = Vector2(157, 112.5)
+shape = SubResource("RectangleShape2D_qak85")
+
+[node name="TextEdit" type="TextEdit" parent="ArrowZone"]
+offset_left = 90.0
+offset_top = 25.0
+offset_right = 223.0
+offset_bottom = 199.0
+text = "弓箭区域"
