@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://mt06oqivp8f0"]
+[gd_scene load_steps=6 format=3 uid="uid://mt06oqivp8f0"]
 
+[ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_lxh1x"]
 [ext_resource type="PackedScene" uid="uid://cru6v24tqmo18" path="res://scenes/player.tscn" id="1_q0uko"]
 [ext_resource type="PackedScene" uid="uid://dw7ogrktqskhg" path="res://scenes/levels/level_1_map.tscn" id="2_842nc"]
 [ext_resource type="PackedScene" uid="uid://bv7xk34hwsrpg" path="res://teammates/mate1.tscn" id="3_yja5d"]
+[ext_resource type="PackedScene" uid="uid://btu4s4j7tcxri" path="res://scenes/levels/level_1_prologuestory.tscn" id="5_7tq6c"]
 
 [node name="Level1_Prologue" type="Node2D"]
+script = ExtResource("1_lxh1x")
 
 [node name="Player" parent="." instance=ExtResource("1_q0uko")]
-position = Vector2(-63, 3)
+position = Vector2(370, 514)
 scale = Vector2(0.5, 0.5)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -16,7 +19,10 @@ offset = Vector2(0, -25)
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 
+[node name="level1map" parent="." instance=ExtResource("2_842nc")]
+
 [node name="mate1" parent="." instance=ExtResource("3_yja5d")]
+position = Vector2(448, 497)
 scale = Vector2(0.5, 0.5)
 
-[node name="level1map" parent="." instance=ExtResource("2_842nc")]
+[node name="prologuestory" parent="." instance=ExtResource("5_7tq6c")]
