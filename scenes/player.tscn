@@ -1,32 +1,55 @@
-[gd_scene load_steps=5 format=3 uid="uid://cru6v24tqmo18"]
+[gd_scene load_steps=9 format=3 uid="uid://cru6v24tqmo18"]
 
 [ext_resource type="Texture2D" uid="uid://c0l3afwdy41yu" path="res://assets/grass.png" id="1_kkwi6"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_lejjv"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yy4sf"]
+[ext_resource type="Script" path="res://player/player.gd" id="1_lejjv"]
+[ext_resource type="Script" path="res://scripts/states/StateMachine.gd" id="3_2xq0r"]
+[ext_resource type="Script" path="res://player/IDLE.gd" id="4_cxsfh"]
+[ext_resource type="Script" path="res://player/MOVE.gd" id="5_e7pr2"]
+[ext_resource type="Script" path="res://player/JUMP.gd" id="6_4lmd8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ua3xb"]
 size = Vector2(82, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yy4sf"]
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_lejjv")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Graphics" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Graphics"]
 position = Vector2(0, -25)
 texture = ExtResource("1_kkwi6")
+
+[node name="Area2D" type="Area2D" parent="Graphics"]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Graphics/Area2D"]
+position = Vector2(0, -25)
+shape = SubResource("RectangleShape2D_ua3xb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -25)
 scale = Vector2(2.5, 2.5)
 shape = SubResource("RectangleShape2D_yy4sf")
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_mask = 3
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_2xq0r")
+initial_state = NodePath("IDLE")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -25)
-shape = SubResource("RectangleShape2D_ua3xb")
+[node name="IDLE" type="Node" parent="StateMachine"]
+script = ExtResource("4_cxsfh")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[node name="MOVE" type="Node" parent="StateMachine"]
+script = ExtResource("5_e7pr2")
+
+[node name="JUMP" type="Node" parent="StateMachine"]
+script = ExtResource("6_4lmd8")
+
+[node name="JumpRequestTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="body_entered" from="Graphics/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Graphics/Area2D" to="." method="_on_area_2d_body_exited"]

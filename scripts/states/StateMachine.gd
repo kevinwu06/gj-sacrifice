@@ -24,6 +24,12 @@ func _physics_process(delta: float) -> void:
 		current_state.physics_update(delta)
 
 func on_child_transition(state,new_state_name):
+	print("[%s]%s=>%s" % [
+		Engine.get_physics_frames(),
+		state.name,
+		new_state_name.to_upper(),
+	])
+	
 	if state!=current_state:
 		return
 	
