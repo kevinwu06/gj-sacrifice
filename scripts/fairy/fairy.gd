@@ -1,10 +1,10 @@
 extends Node2D
 
 @export var follow_target: NodePath
-@export var follow_threshold: float = 50.0  # 主角和精灵之间的最小距离
+@export var follow_threshold: float = 40.0  # 主角和精灵之间的最小距离
 @export var max_follow_speed: float = 300.0  # 最大跟随速度
-@export var float_amplitude: float = 0.5  # 上下浮动的幅度
-@export var float_speed: float = 2.0  # 上下浮动的速度
+@export var float_amplitude: float = 0.1  # 上下浮动的幅度
+@export var float_speed: float = 3.0  # 上下浮动的速度
 @export var vertical_offset: float = 30.0  # 精灵相对于主角的垂直偏移量
 
 var target: Node2D

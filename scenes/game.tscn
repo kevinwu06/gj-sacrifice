@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://vxbu4tsd32we"]
+[gd_scene load_steps=7 format=3 uid="uid://vxbu4tsd32we"]
 
 [ext_resource type="PackedScene" uid="uid://cru6v24tqmo18" path="res://scenes/player.tscn" id="1_2bhdg"]
 [ext_resource type="PackedScene" uid="uid://b8uj17bluackc" path="res://scenes/map_1.tscn" id="2_jdpau"]
 [ext_resource type="PackedScene" uid="uid://bv7xk34hwsrpg" path="res://scenes/mates/mate1.tscn" id="3_r6s1q"]
+[ext_resource type="PackedScene" uid="uid://bpcxfc52xhvgs" path="res://scenes/fairy/fairy.tscn" id="4_meemr"]
 
 [sub_resource type="Gradient" id="Gradient_ilulh"]
 offsets = PackedFloat32Array(0, 0.967532, 1)
@@ -45,3 +46,7 @@ texture_scale = 9.09
 energy = 0.14
 blend_mode = 1
 range_layer_min = -100
+
+[node name="Fairy" parent="." instance=ExtResource("4_meemr")]
+scale = Vector2(0.5, 0.5)
+follow_target = NodePath("../Player")
